@@ -1,0 +1,2623 @@
+Claro. Aquí tienes el **código completo terminado**, integrando el **-17%**, **US$49.94**, el enlace de Amazon que proporcionaste, la experiencia 3D/AR, QR, contador y la campaña de **BogotaFitDeals**.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BogotaFitDeals | Reebok Men's Rapid Strike Shoes</title>
+
+  <meta
+    name="description"
+    content="BogotaFitDeals presenta los Reebok Men's Rapid Strike Shoes con una experiencia 3D y realidad aumentada."
+  >
+
+  <!-- =========================================
+       MODEL VIEWER - 3D + REALIDAD AUMENTADA
+  ========================================== -->
+  <script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
+  </script>
+
+  <!-- =========================================
+       QR CODE
+  ========================================== -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+  </script>
+
+  <style>
+
+    /* =========================================
+       VARIABLES
+    ========================================== */
+
+    :root {
+      --negro: #080808;
+      --blanco: #ffffff;
+      --gris: #f2f2f2;
+      --gris-medio: #dcdcdc;
+      --gris-texto: #666666;
+      --rojo: #e31837;
+      --rojo-hover: #b9122b;
+      --naranja-amazon: #ff9900;
+      --naranja-hover: #ffad22;
+      --azul: #2563eb;
+      --verde: #19c37d;
+      --texto: #151515;
+
+      --sombra:
+        0 20px 50px rgba(0, 0, 0, .12);
+    }
+
+
+    /* =========================================
+       RESET
+    ========================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        var(--blanco);
+
+      color:
+        var(--texto);
+
+      line-height:
+        1.6;
+    }
+
+
+    /* =========================================
+       BARRA SUPERIOR
+    ========================================== */
+
+    .top-bar {
+
+      background:
+        var(--rojo);
+
+      color:
+        white;
+
+      text-align:
+        center;
+
+      padding:
+        9px 15px;
+
+      font-size:
+        .9rem;
+
+      font-weight:
+        bold;
+    }
+
+
+    /* =========================================
+       HEADER
+    ========================================== */
+
+    header {
+
+      background:
+
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(227, 24, 55, .35),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          135deg,
+          #050505,
+          #151515
+        );
+
+      color:
+        white;
+
+      padding:
+        22px 5%;
+    }
+
+
+    .header-inner {
+
+      max-width:
+        1200px;
+
+      margin:
+        auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+    }
+
+
+    .logo {
+
+      font-size:
+        1.7rem;
+
+      font-weight:
+        900;
+
+      letter-spacing:
+        1px;
+    }
+
+
+    .logo span {
+
+      color:
+        var(--rojo);
+    }
+
+
+    nav a {
+
+      color:
+        white;
+
+      text-decoration:
+        none;
+
+      margin-left:
+        22px;
+
+      font-weight:
+        bold;
+
+      font-size:
+        .95rem;
+
+      transition:
+        .2s;
+    }
+
+
+    nav a:hover {
+
+      color:
+        #ff536c;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================== */
+
+    .hero {
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, .94) 0%,
+          rgba(0, 0, 0, .78) 45%,
+          rgba(0, 0, 0, .30) 100%
+        ),
+
+        url("hero-feria.jpg")
+        center / cover;
+
+      min-height:
+        510px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      color:
+        white;
+
+      padding:
+        70px 5%;
+    }
+
+
+    .hero-content {
+
+      width:
+        min(1200px, 100%);
+
+      margin:
+        auto;
+    }
+
+
+    .etiqueta {
+
+      display:
+        inline-block;
+
+      background:
+        var(--rojo);
+
+      padding:
+        8px 15px;
+
+      border-radius:
+        25px;
+
+      font-size:
+        .82rem;
+
+      font-weight:
+        bold;
+
+      margin-bottom:
+        18px;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        1px;
+    }
+
+
+    .hero h1 {
+
+      max-width:
+        800px;
+
+      font-size:
+        clamp(2.4rem, 6vw, 4.7rem);
+
+      line-height:
+        1.02;
+
+      margin-bottom:
+        22px;
+    }
+
+
+    .hero h1 span {
+
+      color:
+        #ff3b57;
+    }
+
+
+    .hero p {
+
+      max-width:
+        680px;
+
+      font-size:
+        1.2rem;
+
+      color:
+        #eeeeee;
+
+      margin-bottom:
+        30px;
+    }
+
+
+    .hero-buttons {
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        14px;
+    }
+
+
+    .btn {
+
+      display:
+        inline-block;
+
+      padding:
+        14px 25px;
+
+      border-radius:
+        30px;
+
+      text-decoration:
+        none;
+
+      font-weight:
+        bold;
+
+      transition:
+        .2s ease;
+
+      cursor:
+        pointer;
+    }
+
+
+    .btn-primary {
+
+      background:
+        var(--rojo);
+
+      color:
+        white;
+    }
+
+
+    .btn-primary:hover {
+
+      background:
+        var(--rojo-hover);
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    .btn-secondary {
+
+      border:
+        2px solid white;
+
+      color:
+        white;
+    }
+
+
+    .btn-secondary:hover {
+
+      background:
+        white;
+
+      color:
+        black;
+    }
+
+
+    /* =========================================
+       CONTADOR
+    ========================================== */
+
+    .countdown-section {
+
+      background:
+        #111;
+
+      color:
+        white;
+
+      padding:
+        25px 5%;
+
+      text-align:
+        center;
+    }
+
+
+    .countdown-title {
+
+      font-size:
+        .9rem;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        2px;
+
+      color:
+        #bbb;
+
+      margin-bottom:
+        10px;
+    }
+
+
+    #countdown {
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      gap:
+        12px;
+
+      flex-wrap:
+        wrap;
+    }
+
+
+    .time-box {
+
+      background:
+        #202020;
+
+      border:
+        1px solid #333;
+
+      min-width:
+        75px;
+
+      padding:
+        10px 12px;
+
+      border-radius:
+        10px;
+    }
+
+
+    .time-box strong {
+
+      display:
+        block;
+
+      font-size:
+        1.6rem;
+
+      color:
+        white;
+    }
+
+
+    .time-box span {
+
+      font-size:
+        .7rem;
+
+      color:
+        #aaa;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    /* =========================================
+       MAIN
+    ========================================== */
+
+    main {
+
+      width:
+        min(1200px, 92%);
+
+      margin:
+        55px auto;
+    }
+
+
+    .seccion-titulo {
+
+      text-align:
+        center;
+
+      margin-bottom:
+        35px;
+    }
+
+
+    .seccion-titulo small {
+
+      color:
+        var(--rojo);
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        2px;
+
+      font-weight:
+        bold;
+    }
+
+
+    .seccion-titulo h2 {
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      margin-top:
+        8px;
+    }
+
+
+    /* =========================================
+       PRODUCTO
+    ========================================== */
+
+    .producto {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.1fr .9fr;
+
+      gap:
+        45px;
+
+      align-items:
+        center;
+    }
+
+
+    /* =========================================
+       VISOR 3D
+    ========================================== */
+
+    .visor {
+
+      min-height:
+        550px;
+
+      background:
+
+        radial-gradient(
+          circle at center,
+          #ffffff 0%,
+          #e8e8e8 70%
+        );
+
+      border-radius:
+        24px;
+
+      overflow:
+        hidden;
+
+      position:
+        relative;
+
+      box-shadow:
+        var(--sombra);
+
+      border:
+        1px solid #ddd;
+    }
+
+
+    model-viewer {
+
+      width:
+        100%;
+
+      height:
+        550px;
+
+      background:
+        transparent;
+    }
+
+
+    .ar-badge {
+
+      position:
+        absolute;
+
+      top:
+        20px;
+
+      left:
+        20px;
+
+      background:
+        rgba(0, 0, 0, .82);
+
+      color:
+        white;
+
+      padding:
+        8px 13px;
+
+      border-radius:
+        20px;
+
+      font-size:
+        .78rem;
+
+      font-weight:
+        bold;
+
+      z-index:
+        2;
+    }
+
+
+    .ar-button {
+
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      bottom:
+        22px;
+
+      transform:
+        translateX(-50%);
+
+      border:
+        none;
+
+      border-radius:
+        30px;
+
+      padding:
+        15px 26px;
+
+      background:
+        var(--rojo);
+
+      color:
+        white;
+
+      font-size:
+        1rem;
+
+      font-weight:
+        bold;
+
+      cursor:
+        pointer;
+
+      box-shadow:
+        0 8px 25px
+        rgba(227, 24, 55, .35);
+
+      white-space:
+        nowrap;
+    }
+
+
+    .ar-button:hover {
+
+      background:
+        var(--rojo-hover);
+    }
+
+
+    /* =========================================
+       INFORMACIÓN PRODUCTO
+    ========================================== */
+
+    .informacion h2 {
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      line-height:
+        1.1;
+
+      margin-bottom:
+        16px;
+    }
+
+
+    .marca {
+
+      color:
+        var(--rojo);
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        2px;
+
+      font-size:
+        .85rem;
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .descripcion {
+
+      font-size:
+        1.08rem;
+
+      color:
+        #555;
+
+      margin-bottom:
+        22px;
+    }
+
+
+    .beneficios {
+
+      list-style:
+        none;
+
+      margin:
+        25px 0;
+    }
+
+
+    .beneficios li {
+
+      margin-bottom:
+        12px;
+
+      padding-left:
+        30px;
+
+      position:
+        relative;
+    }
+
+
+    .beneficios li::before {
+
+      content:
+        "✓";
+
+      position:
+        absolute;
+
+      left:
+        0;
+
+      top:
+        0;
+
+      color:
+        var(--verde);
+
+      font-weight:
+        900;
+    }
+
+
+    /* =========================================
+       PRECIO / DESCUENTO
+    ========================================== */
+
+    .precio-box {
+
+      margin:
+        20px 0;
+
+      padding:
+        20px;
+
+      background:
+        #fff5f6;
+
+      border:
+        1px solid #ffd5da;
+
+      border-radius:
+        16px;
+
+      position:
+        relative;
+    }
+
+
+    .descuento {
+
+      display:
+        inline-block;
+
+      background:
+        var(--rojo);
+
+      color:
+        white;
+
+      font-size:
+        .95rem;
+
+      font-weight:
+        900;
+
+      padding:
+        6px 13px;
+
+      border-radius:
+        20px;
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .precio-anterior {
+
+      color:
+        #777;
+
+      text-decoration:
+        line-through;
+
+      font-size:
+        1.05rem;
+    }
+
+
+    .precio-actual {
+
+      color:
+        var(--rojo);
+
+      font-size:
+        2.6rem;
+
+      font-weight:
+        900;
+
+      line-height:
+        1.1;
+    }
+
+
+    .precio-moneda {
+
+      color:
+        #555;
+
+      font-size:
+        .9rem;
+
+      font-weight:
+        bold;
+
+      margin-top:
+        5px;
+    }
+
+
+    .precio-nota {
+
+      color:
+        #777;
+
+      font-size:
+        .75rem;
+
+      margin-top:
+        10px;
+    }
+
+
+    /* =========================================
+       BOTONES COMPRA
+    ========================================== */
+
+    .botones-compra {
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        12px;
+
+      margin-top:
+        18px;
+    }
+
+
+    .cta {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        var(--negro);
+
+      color:
+        white;
+
+      padding:
+        16px 28px;
+
+      border-radius:
+        30px;
+
+      text-decoration:
+        none;
+
+      font-weight:
+        bold;
+
+      transition:
+        .2s ease;
+    }
+
+
+    .cta:hover {
+
+      background:
+        var(--rojo);
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    .cta-amazon {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        8px;
+
+      background:
+        var(--naranja-amazon);
+
+      color:
+        #111;
+
+      padding:
+        16px 28px;
+
+      border-radius:
+        30px;
+
+      text-decoration:
+        none;
+
+      font-weight:
+        900;
+
+      transition:
+        .2s ease;
+    }
+
+
+    .cta-amazon:hover {
+
+      background:
+        var(--naranja-hover);
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    .amazon-note {
+
+      margin-top:
+        12px;
+
+      font-size:
+        .78rem;
+
+      color:
+        #777;
+    }
+
+
+    /* =========================================
+       AMAZON CARD
+    ========================================== */
+
+    .amazon-card {
+
+      margin-top:
+        25px;
+
+      padding:
+        20px;
+
+      border:
+        1px solid #ddd;
+
+      border-radius:
+        16px;
+
+      background:
+        #fafafa;
+    }
+
+
+    .amazon-card-title {
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        5px;
+    }
+
+
+    .amazon-card p {
+
+      color:
+        #666;
+
+      font-size:
+        .9rem;
+
+      margin-bottom:
+        12px;
+    }
+
+
+    .amazon-link {
+
+      color:
+        #0066c0;
+
+      font-weight:
+        bold;
+
+      text-decoration:
+        none;
+
+      word-break:
+        break-all;
+    }
+
+
+    .amazon-link:hover {
+
+      text-decoration:
+        underline;
+    }
+
+
+    /* =========================================
+       FERIA
+    ========================================== */
+
+    .feria {
+
+      margin-top:
+        75px;
+
+      padding:
+        50px;
+
+      border-radius:
+        25px;
+
+      color:
+        white;
+
+      background:
+
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(37, 99, 235, .5),
+          transparent 25%
+        ),
+
+        linear-gradient(
+          135deg,
+          #080808,
+          #181818
+        );
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        35px;
+
+      align-items:
+        center;
+    }
+
+
+    .feria h2 {
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      line-height:
+        1.1;
+
+      margin:
+        12px 0;
+    }
+
+
+    .feria p {
+
+      color:
+        #ddd;
+
+      margin-bottom:
+        20px;
+    }
+
+
+    .feria-info {
+
+      display:
+        grid;
+
+      gap:
+        12px;
+    }
+
+
+    .feria-card {
+
+      padding:
+        18px;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(255, 255, 255, .08);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, .12);
+    }
+
+
+    .feria-card strong {
+
+      display:
+        block;
+
+      color:
+        white;
+
+      margin-bottom:
+        3px;
+    }
+
+
+    .feria-card span {
+
+      color:
+        #bbb;
+
+      font-size:
+        .9rem;
+    }
+
+
+    /* =========================================
+       TECNOLOGÍA
+    ========================================== */
+
+    .tecnologia {
+
+      margin-top:
+        70px;
+    }
+
+
+    .features {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        20px;
+    }
+
+
+    .feature {
+
+      background:
+        var(--gris);
+
+      padding:
+        30px;
+
+      border-radius:
+        18px;
+
+      text-align:
+        center;
+
+      transition:
+        .2s ease;
+    }
+
+
+    .feature:hover {
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, .08);
+    }
+
+
+    .feature-icon {
+
+      font-size:
+        2.2rem;
+
+      margin-bottom:
+        12px;
+    }
+
+
+    .feature h3 {
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .feature p {
+
+      color:
+        #666;
+
+      font-size:
+        .95rem;
+    }
+
+
+    /* =========================================
+       QR
+    ========================================== */
+
+    .qr-section {
+
+      margin-top:
+        70px;
+
+      padding:
+        40px 25px;
+
+      background:
+        var(--gris);
+
+      border-radius:
+        22px;
+
+      text-align:
+        center;
+    }
+
+
+    .qr-section h2 {
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .qr-section p {
+
+      color:
+        #666;
+
+      max-width:
+        600px;
+
+      margin:
+        auto;
+    }
+
+
+    #qrCode {
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      margin:
+        25px auto 10px;
+    }
+
+
+    #qrCode img {
+
+      padding:
+        10px;
+
+      background:
+        white;
+
+      border-radius:
+        10px;
+    }
+
+
+    .qr-help {
+
+      color:
+        #777;
+
+      font-size:
+        .8rem;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================== */
+
+    footer {
+
+      margin-top:
+        70px;
+
+      padding:
+        40px 20px;
+
+      background:
+        var(--negro);
+
+      color:
+        white;
+
+      text-align:
+        center;
+    }
+
+
+    footer strong {
+
+      color:
+        #ff3b57;
+    }
+
+
+    footer p {
+
+      color:
+        #aaa;
+
+      margin-top:
+        8px;
+
+      font-size:
+        .9rem;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================== */
+
+    @media (max-width: 850px) {
+
+      .header-inner {
+
+        flex-direction:
+          column;
+      }
+
+
+      nav a {
+
+        margin:
+          0 8px;
+      }
+
+
+      .hero {
+
+        min-height:
+          560px;
+
+        padding:
+          50px 5%;
+      }
+
+
+      .producto,
+      .feria {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .visor,
+      model-viewer {
+
+        min-height:
+          430px;
+
+        height:
+          430px;
+      }
+
+
+      .features {
+
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .feria {
+
+        padding:
+          35px 25px;
+      }
+
+
+      .botones-compra {
+
+        flex-direction:
+          column;
+      }
+
+
+      .cta,
+      .cta-amazon {
+
+        width:
+          100%;
+
+        text-align:
+          center;
+      }
+
+    }
+
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+
+        font-size:
+          2.5rem;
+      }
+
+
+      .hero p {
+
+        font-size:
+          1rem;
+      }
+
+
+      .visor,
+      model-viewer {
+
+        height:
+          360px;
+
+        min-height:
+          360px;
+      }
+
+
+      .precio-actual {
+
+        font-size:
+          2.1rem;
+      }
+
+
+      .btn {
+
+        width:
+          100%;
+
+        text-align:
+          center;
+      }
+
+
+      .ar-button {
+
+        font-size:
+          .9rem;
+
+        padding:
+          13px 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+       BARRA PROMOCIONAL
+  ========================================== -->
+
+  <div class="top-bar">
+
+    🔥 OFERTA ESPECIAL:
+    <strong>-17%</strong>
+    · Reebok Men's Rapid Strike Shoes
+    · US$49.94
+
+  </div>
+
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <div class="logo">
+
+        Bogota<span>Fit</span>Deals
+
+      </div>
+
+
+      <nav>
+
+        <a href="#producto">
+          Producto
+        </a>
+
+        <a href="#feria">
+          Feria
+        </a>
+
+        <a href="#experiencia">
+          Tecnología
+        </a>
+
+        <a href="#qr">
+          QR
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       HERO
+  ========================================== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+
+      <span class="etiqueta">
+
+        Feria de Emprendimiento y Tecnología
+
+      </span>
+
+
+      <h1>
+
+        Tecnología que puedes
+        <span>usar y experimentar.</span>
+
+      </h1>
+
+
+      <p>
+
+        Descubre los Reebok Men's Rapid Strike Shoes
+        y vive una nueva forma de comprar:
+
+        explora el producto en 3D,
+        visualízalo mediante realidad aumentada
+        y accede directamente a la oferta online.
+
+      </p>
+
+
+      <div class="hero-buttons">
+
+
+        <a
+          class="btn btn-primary"
+          href="#producto">
+
+          👟 Explorar producto
+
+        </a>
+
+
+        <a
+          class="btn btn-secondary"
+          href="#feria">
+
+          🚀 Conocer la feria
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       CONTADOR
+  ========================================== -->
+
+  <section class="countdown-section">
+
+
+    <div class="countdown-title">
+
+      Cuenta regresiva para la feria
+
+    </div>
+
+
+    <div id="countdown">
+
+
+      <div class="time-box">
+
+        <strong id="days">
+          00
+        </strong>
+
+        <span>
+          Días
+        </span>
+
+      </div>
+
+
+      <div class="time-box">
+
+        <strong id="hours">
+          00
+        </strong>
+
+        <span>
+          Horas
+        </span>
+
+      </div>
+
+
+      <div class="time-box">
+
+        <strong id="minutes">
+          00
+        </strong>
+
+        <span>
+          Minutos
+        </span>
+
+      </div>
+
+
+      <div class="time-box">
+
+        <strong id="seconds">
+          00
+        </strong>
+
+        <span>
+          Segundos
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+
+    <!-- =========================================
+         PRODUCTO
+    ========================================== -->
+
+    <section id="producto">
+
+
+      <div class="seccion-titulo">
+
+
+        <small>
+
+          Producto destacado
+
+        </small>
+
+
+        <h2>
+
+          Reebok Men's Rapid Strike Shoes
+
+        </h2>
+
+
+      </div>
+
+
+      <div class="producto">
+
+
+        <!-- =====================================
+             VISOR 3D / AR
+        ====================================== -->
+
+        <div class="visor">
+
+
+          <div class="ar-badge">
+
+            ✦ EXPERIENCIA 3D + AR
+
+          </div>
+
+
+          <model-viewer
+
+            src="modelo-reebok-rapid-strike.glb"
+
+            alt="Modelo tridimensional de los Reebok Men's Rapid Strike Shoes"
+
+            ar
+
+            ar-modes="
+              webxr
+              scene-viewer
+              quick-look
+            "
+
+            ar-placement="floor"
+
+            ar-scale="auto"
+
+            camera-controls
+
+            auto-rotate
+
+            rotation-per-second="25deg"
+
+            shadow-intensity="1.2"
+
+            exposure="1"
+
+            touch-action="pan-y">
+
+
+            <button
+              class="ar-button"
+              slot="ar-button"
+              type="button">
+
+              📱 Ver en mi espacio
+
+            </button>
+
+
+          </model-viewer>
+
+
+        </div>
+
+
+        <!-- =====================================
+             INFORMACIÓN
+        ====================================== -->
+
+        <div class="informacion">
+
+
+          <div class="marca">
+
+            BogotaFitDeals
+            · Producto principal
+
+          </div>
+
+
+          <h2>
+
+            Reebok Men's
+            Rapid Strike Shoes
+
+          </h2>
+
+
+          <p class="descripcion">
+
+            Lleva tu estilo deportivo al siguiente
+            nivel con una experiencia de compra
+            pensada para la nueva generación.
+
+            Explora el producto en 3D y utiliza
+            la realidad aumentada para visualizarlo
+            en tu propio espacio.
+
+          </p>
+
+
+          <ul class="beneficios">
+
+
+            <li>
+
+              Diseño deportivo para complementar
+              tu estilo.
+
+            </li>
+
+
+            <li>
+
+              Experiencia interactiva mediante
+              modelo 3D.
+
+            </li>
+
+
+            <li>
+
+              Visualización en realidad aumentada
+              desde dispositivos compatibles.
+
+            </li>
+
+
+            <li>
+
+              Acceso directo a la publicación
+              del producto en Amazon.
+
+            </li>
+
+
+            <li>
+
+              Oferta especial para la campaña
+              BogotaFitDeals.
+
+            </li>
+
+
+          </ul>
+
+
+          <!-- =====================================
+               PRECIO PROMOCIONAL
+          ====================================== -->
+
+          <div class="precio-box">
+
+
+            <span class="descuento">
+
+              -17%
+
+            </span>
+
+
+            <p class="precio-anterior">
+
+              Precio anterior:
+              US$60.17
+
+            </p>
+
+
+            <p class="precio-actual">
+
+              US$49.94
+
+            </p>
+
+
+            <p class="precio-moneda">
+
+              Precio promocional
+
+            </p>
+
+
+            <p class="precio-nota">
+
+              *El precio, disponibilidad, talla,
+              color y vendedor pueden variar según
+              las condiciones de Amazon.
+
+            </p>
+
+
+          </div>
+
+
+          <!-- =====================================
+               BOTONES
+          ====================================== -->
+
+          <div class="botones-compra">
+
+
+            <a
+
+              class="cta-amazon"
+
+              href="https://www.amazon.com/dp/B0G5BZKZWX?pd_rd_i=B0G5BZKZWX&pf_rd_p=f1e9beb5-f371-4587-80fb-3d96ad74443b&pf_rd_r=M8X4D4NNEWECVS11EKSQ&pd_rd_wg=8aAhr&pd_rd_w=nkotK&pd_rd_r=f970519f-e19e-414f-a199-38a75ae534d7&th=1&psc=1"
+
+              target="_blank"
+
+              rel="noopener noreferrer">
+
+              🛒 Comprar en Amazon
+
+            </a>
+
+
+            <a
+
+              class="cta"
+
+              href="#qr">
+
+              📲 Abrir experiencia
+
+            </a>
+
+
+          </div>
+
+
+          <p class="amazon-note">
+
+            El botón de compra abre la publicación
+            del producto en Amazon.
+
+          </p>
+
+
+          <!-- =====================================
+               AMAZON
+          ====================================== -->
+
+          <div class="amazon-card">
+
+
+            <div class="amazon-card-title">
+
+              🛒 Compra online
+
+            </div>
+
+
+            <p>
+
+              Consulta directamente en Amazon
+              el precio, tallas, colores,
+              disponibilidad y condiciones
+              de compra.
+
+            </p>
+
+
+            <a
+
+              class="amazon-link"
+
+              href="https://www.amazon.com/dp/B0G5BZKZWX"
+
+              target="_blank"
+
+              rel="noopener noreferrer">
+
+              Ver producto · Amazon
+
+            </a>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FERIA
+    ========================================== -->
+
+    <section
+      id="feria"
+      class="feria">
+
+
+      <div>
+
+
+        <span class="etiqueta">
+
+          Evento
+
+        </span>
+
+
+        <h2>
+
+          Vive la experiencia
+          BogotaFitDeals.
+
+        </h2>
+
+
+        <p>
+
+          Visítanos en la próxima Feria de
+          Emprendimiento y Tecnología de Bogotá
+          y descubre cómo el comercio,
+          el deporte y la realidad aumentada
+          pueden combinarse en una experiencia
+          diferente.
+
+        </p>
+
+
+        <a
+
+          class="btn btn-primary"
+
+          href="#qr">
+
+          📲 Llevar la experiencia al celular
+
+        </a>
+
+
+      </div>
+
+
+      <div class="feria-info">
+
+
+        <div class="feria-card">
+
+          <strong>
+
+            📍 Bogotá
+
+          </strong>
+
+
+          <span>
+
+            Próxima Feria de Emprendimiento
+            y Tecnología
+
+          </span>
+
+        </div>
+
+
+        <div class="feria-card">
+
+          <strong>
+
+            👟 Producto protagonista
+
+          </strong>
+
+
+          <span>
+
+            Reebok Men's Rapid Strike Shoes
+
+          </span>
+
+        </div>
+
+
+        <div class="feria-card">
+
+          <strong>
+
+            🥽 Tecnología
+
+          </strong>
+
+
+          <span>
+
+            Modelo 3D + Realidad Aumentada + QR
+
+          </span>
+
+        </div>
+
+
+        <div class="feria-card">
+
+          <strong>
+
+            🔥 Oferta
+
+          </strong>
+
+
+          <span>
+
+            -17% · US$49.94
+
+          </span>
+
+        </div>
+
+
+        <div class="feria-card">
+
+          <strong>
+
+            🛒 Compra online
+
+          </strong>
+
+
+          <span>
+
+            Acceso directo a Amazon
+
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TECNOLOGÍA
+    ========================================== -->
+
+    <section
+      id="experiencia"
+      class="tecnologia">
+
+
+      <div class="seccion-titulo">
+
+
+        <small>
+
+          Experiencia digital
+
+        </small>
+
+
+        <h2>
+
+          Más que una compra
+
+        </h2>
+
+
+      </div>
+
+
+      <div class="features">
+
+
+        <article class="feature">
+
+
+          <div class="feature-icon">
+
+            👟
+
+          </div>
+
+
+          <h3>
+
+            Explora en 3D
+
+          </h3>
+
+
+          <p>
+
+            Gira, acerca y observa el producto
+            desde diferentes ángulos.
+
+          </p>
+
+
+        </article>
+
+
+        <article class="feature">
+
+
+          <div class="feature-icon">
+
+            📱
+
+          </div>
+
+
+          <h3>
+
+            Realidad aumentada
+
+          </h3>
+
+
+          <p>
+
+            En dispositivos compatibles puedes
+            visualizar el producto en tu propio
+            espacio.
+
+          </p>
+
+
+        </article>
+
+
+        <article class="feature">
+
+
+          <div class="feature-icon">
+
+            🛒
+
+          </div>
+
+
+          <h3>
+
+            Compra online
+
+          </h3>
+
+
+          <p>
+
+            Después de explorar el producto,
+            accede directamente a la publicación
+            disponible en Amazon.
+
+          </p>
+
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         QR
+    ========================================== -->
+
+    <section
+      id="qr"
+      class="qr-section">
+
+
+      <h2>
+
+        📲 Lleva BogotaFitDeals contigo
+
+      </h2>
+
+
+      <p>
+
+        Escanea este código QR desde tu celular
+        para abrir esta experiencia y explorar
+        los Reebok Men's Rapid Strike Shoes
+        mediante realidad aumentada.
+
+      </p>
+
+
+      <div id="qrCode"></div>
+
+
+      <div class="qr-help">
+
+        Compatible con dispositivos y navegadores
+        que soporten experiencias WebAR.
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer>
+
+
+    <strong>
+
+      BogotaFitDeals
+
+    </strong>
+
+
+    <p>
+
+      Emprendimiento · Tecnología · Deporte
+      · Experiencias digitales
+
+    </p>
+
+
+    <p>
+
+      © 2026 BogotaFitDeals.
+      Todos los derechos reservados.
+
+    </p>
+
+
+  </footer>
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
+  <script>
+
+
+    /* =========================================
+       FECHA DE LA FERIA
+    ========================================== */
+
+    /*
+      CAMBIA ESTA FECHA POR LA FECHA REAL
+      DE LA FERIA.
+
+      Formato:
+
+      YYYY-MM-DDTHH:MM:SS-05:00
+
+      Ejemplo:
+
+      2026-09-15T10:00:00-05:00
+    */
+
+
+    const fechaFeria =
+      new Date(
+        "2026-09-15T10:00:00-05:00"
+      );
+
+
+    /* =========================================
+       CONTADOR
+    ========================================== */
+
+    function actualizarContador() {
+
+
+      const ahora =
+        new Date();
+
+
+      const diferencia =
+        fechaFeria.getTime()
+        -
+        ahora.getTime();
+
+
+      if (diferencia <= 0) {
+
+
+        document.getElementById(
+          "countdown"
+        ).innerHTML = `
+
+          <strong>
+            ¡La feria ha comenzado! 🚀
+          </strong>
+
+        `;
+
+
+        return;
+
+      }
+
+
+      const dias =
+
+        Math.floor(
+          diferencia /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      const horas =
+
+        Math.floor(
+          (diferencia /
+          (1000 * 60 * 60))
+          % 24
+        );
+
+
+      const minutos =
+
+        Math.floor(
+          (diferencia /
+          (1000 * 60))
+          % 60
+        );
+
+
+      const segundos =
+
+        Math.floor(
+          (diferencia /
+          1000)
+          % 60
+        );
+
+
+      document.getElementById(
+        "days"
+      ).textContent =
+
+        String(dias)
+        .padStart(2, "0");
+
+
+      document.getElementById(
+        "hours"
+      ).textContent =
+
+        String(horas)
+        .padStart(2, "0");
+
+
+      document.getElementById(
+        "minutes"
+      ).textContent =
+
+        String(minutos)
+        .padStart(2, "0");
+
+
+      document.getElementById(
+        "seconds"
+      ).textContent =
+
+        String(segundos)
+        .padStart(2, "0");
+
+    }
+
+
+    actualizarContador();
+
+
+    setInterval(
+      actualizarContador,
+      1000
+    );
+
+
+    /* =========================================
+       CÓDIGO QR
+    ========================================== */
+
+    new QRCode(
+
+      document.querySelector(
+        "#qrCode"
+      ),
+
+      {
+
+        text:
+          window.location.href,
+
+        width:
+          190,
+
+        height:
+          190,
+
+        correctLevel:
+          QRCode.CorrectLevel.H
+
+      }
+
+    );
+
+
+  </script>
+
+
+</body>
+</html>
+```
+
+El precio queda destacado como **-17% → US$49.94**, con **US$60.17** como precio anterior calculado. El botón **“Comprar en Amazon”** apunta al enlace que proporcionaste.
